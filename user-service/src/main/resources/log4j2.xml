@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="ConsoleAppender" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %c{1}:%L - %m%n"/>
+		</Console>
+		<File name="FileAppender" filename="./logs/user-service.log" immediateFlush="true" append="true" createOnDemand="true">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %c{1}:%L - %m%n"/>
+		</File>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.harish.user_service" level="debug" activity="false">
+			<AppenderRef ref="ConsoleAppender"/>
+			<AppenderRef ref="FileAppender"/>
+		</Logger>
+		
+		<Logger name="org.springframework" level="info"/>
+		<Root level="info">
+			<AppenderRef ref="ConsoleAppender"/>
+			<AppenderRef ref="FileAppender"/>
+		</Root>
+	</Loggers>
+</Configuration>
